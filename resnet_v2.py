@@ -23,7 +23,7 @@ class Resnet4Channel(nn.Module):
         w = encoder.conv1.weight
         self.conv1 = nn.Conv2d(4, 64, kernel_size=7, stride=2, padding=3,
                                bias=False)
-        self.conv1.weight = nn.Parameter(torch.cat((w,0.5*(w[:,:1,:,:]+w[:,2:,:,:])),dim=1))
+        self.conv1.weight = nn.Parameter(torch.cat((w,torch.zeros(64,1,7,7)),dim=1))
         
         self.bn1 = encoder.bn1
         self.relu = nn.ReLU(inplace=True) 
