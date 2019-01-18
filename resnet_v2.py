@@ -1,3 +1,5 @@
+# This is the old version (same as William Horton's)
+
 import torch
 import torch.nn as nn
 import torchvision
